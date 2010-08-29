@@ -29,6 +29,7 @@ In this example we take an hexadecimal string and set its
 saturation to _10_.
 
 {{{
+{% load colors %}
 
 h1 {
     background: #{{ hexcode|saturation:"10" }}
@@ -42,6 +43,7 @@ We can chain transformation, in the next example we set the saturation to _50_ a
 
 
 {{{
+{% load colors %}
 
 h1 {
     background: #{{ hexcode|saturation:"50"|lightness:"40" }};
@@ -52,6 +54,7 @@ h1 {
 == Using RGB values in CSS ==
 
 {{{
+{% load colors %}
 
 h1 {
     background: rgb({{ hexcode|hex_to_rgb:"%s, %s, %s" }});
@@ -62,6 +65,7 @@ h1 {
 == Dynamically generated gradients ==
 
 {{{
+{% load colors %}
 
 #my_div {
     /* non-css3 */
