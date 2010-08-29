@@ -12,9 +12,8 @@ def dec2hex(d):
     return r if len(r) > 1 else r+r
 
 
-def hsv_to_hex(hsv):
+def hsv_to_hex(h, s, v):
     """Returns the hexadecimal value of a HSV color"""
-    h, s, v = hsv
     r, g, b = cs.hsv_to_rgb(h/360, s/100, v/100)
     return dec2hex(r*255) + dec2hex(g*255) + dec2hex(b*255)
 
