@@ -1,0 +1,60 @@
+#Template tags included in this project
+
+= Template Tags =
+
+Django Colors offers a set of filters to manipulate colors. 
+
+
+= Filters =
+
+== Color manipulation ==
+
+|| `opposite` || Returns the opposite color on the HSV color space ||
+|| `lightness` || Set lightness to x, accept hexadecimal or hsv tuple as value ||
+|| `saturation` || Set saturation to x, accept hexadecimal or hsv tuple as value ||
+|| `hue` || Set hue to x, accept hexadecimal or hsv tuple as value ||
+
+== Color spaces conversions ==
+
+|| `hex_to_rgb` || Returns the opposite color on the HSV color space ||
+|| `hex_to_hsv` || Returns the HSV value of a hexadecimal color ||
+|| `hsv_to_hex` || Returns the hexadecimal value of a HSV color ||
+
+
+= Real world examples =
+
+== Saturation example ==
+
+In this example we take an hexadecimal string and set its
+saturation to _10_.
+
+{{{
+
+h1 {
+    background: #{{ hexcode|saturation:"10" }}
+}
+
+}}}
+
+== Chaining example ==
+
+We can chain transformation, in the next example we set the saturation to _50_ and set the lightness to _40_ on the result.
+
+
+{{{
+
+h1 {
+    background: #{{ hexcode|saturation:"50"|lightness:"40" }};
+}
+
+}}}
+
+== Using RGB values in CSS ==
+
+{{{
+
+h1 {
+    background: rgb({{ hexcode|hex_to_rgb:"%s, %s, %s" }});
+}
+
+}}}
