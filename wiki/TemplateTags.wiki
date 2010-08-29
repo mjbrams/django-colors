@@ -58,3 +58,20 @@ h1 {
 }
 
 }}}
+
+== Dynamically generated gradients ==
+
+{{{
+
+#my_div {
+    /* non-css3 */
+    background: #{{ color }};
+    /* IE */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{{ color }}', endColorstr='#{{ color|lightness:"30" }}'); 
+    /* webkit */
+    background: -webkit-gradient(radial, left top, left bottom, from(#{{ color }}), to(#{{ color|lightness:"30" }}));
+    /* firefox 3.6+ */
+    background: -moz-linear-gradient(top,  #{{ color }},  #{{ color|lightness:"30" }});
+}
+
+}}}
