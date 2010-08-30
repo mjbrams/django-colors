@@ -8,8 +8,7 @@ register = template.Library()
 
 def dec2hex(d):
     """return a two character hexadecimal string representation of integer d"""
-    r = "%X" % d
-    return r if len(r) > 1 else r+r
+    return "%02X" % d
 
 
 def hsv_to_hex(h, s, v):
