@@ -1,3 +1,7 @@
+# http://www.w3.org/TR/AERT#color-contrast
+# http://docs.python.org/library/colorsys.html
+# http://www.flett.org/2005/04/26/cool-python-tricks/
+
 from __future__ import division
 import colorsys as cs
 
