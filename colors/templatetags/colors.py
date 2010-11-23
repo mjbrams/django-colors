@@ -10,6 +10,14 @@ from django.utils.safestring import SafeString
 
 register = template.Library()
 
+def expand_hex(x):
+    """Expands shorthand hexadecimal code, ex: c30 -> cc3300"""
+    if len(x) == 3:
+        t = list(x)
+        return "".join([t[0], t[0], t[1], t[1], t[2], t[2]])
+    else:
+        return x
+
 def dec2hex(d):
     """return a two character hexadecimal string representation of integer d"""
     return "%02X" % d
@@ -27,8 +35,18 @@ def hsv_to_hex(h, s, v):
 @register.filter()
 def opposite(x):
     """Returns the opposite color on the HSV color space"""
-    h, s, v = hex_to_hsv(x, False) if len(x) == 6 else x
-    return hsv_to_hex(360-h, 100-s, 100-v)
+    x = expand_hex(x)
+    if x == '000000':
+        return 'ffffff'
+    elif x == 'ffffff':
+        return '000000'
+    else:
+        h, s, v = hex_to_hsv(x, False) if len(x) == 6 else x
+        if h > 180:
+            h = h - 180
+        else:
+            h = 180 - h
+        return hsv_to_hex(h, s, v)
 
 
 # -- Filters / HSV manipulations
@@ -37,6 +55,7 @@ def opposite(x):
 @register.filter()
 def lightness(x, value):
     """Set lightness to x, accept hexadecimal or hsv tuple as value"""
+    x = expand_hex(x)
     h, s, v = hex_to_hsv(x, False) if len(x) == 6 else x
     return hsv_to_hex(h, s, int(value))
 
@@ -44,6 +63,7 @@ def lightness(x, value):
 @register.filter()
 def saturation(x, value):
     """Set saturation to x, accept hexadecimal or hsv tuple as value"""
+    x = expand_hex(x)
     h, s, v = hex_to_hsv(x, False) if len(x) == 6 else x
     return hsv_to_hex(h, int(value), v)
 
@@ -51,6 +71,7 @@ def saturation(x, value):
 @register.filter()
 def hue(x, value):
     """Set hue to x, accept hexadecimal or hsv tuple as value"""
+    x = expand_hex(x)
     h, s, v = hex_to_hsv(x, False) if len(x) == 6 else x
     return hsv_to_hex(int(value), s, v)
 
@@ -61,6 +82,7 @@ def hue(x, value):
 @register.filter()
 def hex_to_rgb(x, format_string='%s %s %s'):
     """Returns the RGB value of a hexadecimal color"""
+    x = expand_hex(x)
     out = (int(x[0:2], 16), int(x[2:4], 16), int(x[4:6], 16))
     return format_string % out if format_string else out
 
@@ -68,6 +90,7 @@ def hex_to_rgb(x, format_string='%s %s %s'):
 @register.filter()
 def hex_to_hsv(x, format_string='%s %s %s'):
     """Returns the HSV value of a hexadecimal color"""
+    x = expand_hex(x)
     h, s, v = cs.rgb_to_hsv(int(x[0:2], 16)/255.0, int(x[2:4], 16)/255.0, int(x[4:6], 16)/255.0)
     out = (int(h * 360), int(s * 100), int(v * 100))
     return format_string % out if format_string else out

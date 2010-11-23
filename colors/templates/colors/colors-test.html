@@ -55,7 +55,7 @@ h2 {
 </head>
 <body>
 {% for color in colors_tests %}
-<h1><b style="background-color:#{{ color }};"></b>#{{ color }}</h1>
+<h1><b style="background-color:#{{ color }};"></b>#{{ color }} / <b style="background-color:#{{ color|opposite }};"></b>#{{ color|opposite }}</h1>
 <h2>Lightness</h2>
 <ul class="color-test">
     {% for l in lightness_range %}
