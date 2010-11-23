@@ -9,7 +9,7 @@ Django Colors offers a set of filters to manipulate colors.
 
 == Color manipulation ==
 
-|| `opposite` || Returns the opposite color on the HSV color space ||
+|| `opposite` || Returns the opposite (complementary) color on the HSV color space ||
 || `lightness` || Set lightness to x, accept hexadecimal or hsv tuple as value ||
 || `saturation` || Set saturation to x, accept hexadecimal or hsv tuple as value ||
 || `hue` || Set hue to x, accept hexadecimal or hsv tuple as value ||
@@ -19,6 +19,7 @@ Django Colors offers a set of filters to manipulate colors.
 || `hex_to_rgb` || Returns the opposite color on the HSV color space ||
 || `hex_to_hsv` || Returns the HSV value of a hexadecimal color ||
 || `hsv_to_hex` || Returns the hexadecimal value of a HSV color ||
+|| `expand_hex` || Returns the hexadecimal value of a HSV color ||
 
 
 = Real world examples =
