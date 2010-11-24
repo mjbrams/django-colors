@@ -20,6 +20,7 @@ Django Colors offers a set of filters to manipulate colors.
 || `hex_to_hsv` || Returns the HSV value of a hexadecimal color ||
 || `hsv_to_hex` || Returns the hexadecimal value of a HSV color ||
 || `expand_hex` || Expands shorthand hexadecimal code, ex: c30 -> cc3300 ||
+|| `short_hex` || Return shorthand hexadecimal code, ex: cc3300 -> c30 ||
 
 = Real world examples =
 
