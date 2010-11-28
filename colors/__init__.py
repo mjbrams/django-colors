@@ -1,4 +1,4 @@
-VERSION = (0, 0, 1, 'alpha', 0)
+VERSION = (0, 0, 2, 'alpha', 0)
 
 # Most of this code is taken form from the Django project
 
