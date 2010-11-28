@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
+import colors
 
 urlpatterns = patterns('',
 
@@ -27,6 +28,7 @@ urlpatterns = patterns('',
             'lightness_range':  range(0, 101, 10),
             'saturation_range': range(0, 101, 10),
             'hue_range':        range(0, 361, 30),
+            'version':          colors.get_version(),
             },
     }, name='django-colors-test'),
 
