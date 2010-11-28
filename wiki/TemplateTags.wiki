@@ -9,6 +9,7 @@ Django Colors offers a set of filters to manipulate colors.
 
 == Color manipulation ==
 
+|| `color` || Returns the hexadecimal value of a named color (ex: black -> 000000) ||
 || `lightness` || Set lightness to x, accept hexadecimal or hsv tuple as value ||
 || `hue` || Set hue to x, accept hexadecimal or hsv tuple as value ||
 || `opposite` || Returns the opposite (complementary) color on the HSV color space ||
