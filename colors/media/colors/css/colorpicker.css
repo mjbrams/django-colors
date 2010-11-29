@@ -43,7 +43,7 @@
 	left: 0;
 	width: 150px;
 	height: 150px;
-	background: url(../images/custom_overlay.png);
+	background: url(../images/colorpicker_overlay.png);
 }
 .colorpicker_color div div {
 	position: absolute;
@@ -52,7 +52,7 @@
 	width: 11px;
 	height: 11px;
 	overflow: hidden;
-	background: url(../images/custom_select.gif);
+	background: url(../images/colorpicker_select.gif);
 	margin: -5px 0 0 -5px;
 }
 .colorpicker_hue {
