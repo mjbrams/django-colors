@@ -1,0 +1,20 @@
+#ColorField
+
+Django Colors provide a model field for storing hexadecimal colors which comes with a handy color picker.
+
+I chose [http://www.eyecon.ro/colorpicker/ Stefan Petre's color picker] because it was the most complete and easy to integrate.
+
+= Usage example =
+
+{{{
+from colors.fields import ColorField
+
+class MyModel(ExtendedModel):
+    title = models.CharField('Title', max_length=250)
+    color = ColorField(default='ffffff')
+
+}}}
+
+= Screenshot =
+
+http://min.us/iCh68.png
