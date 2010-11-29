@@ -1,12 +1,13 @@
-#ColorField
-
 Django Colors provide a model field for storing hexadecimal colors which comes with a handy color picker.
 
 I chose [http://www.eyecon.ro/colorpicker/ Stefan Petre's color picker] because it was the most complete and easy to integrate.
 
+*Note*: currently available only in the trunk
+
 = Usage example =
 
 {{{
+
 from colors.fields import ColorField
 
 class MyModel(ExtendedModel):
